@@ -54,6 +54,8 @@ public class FragmentCategory extends Fragment {
                 else{
                     description.setError("Description is not valid.");
                 }
+
+
             }
         });
         return view;

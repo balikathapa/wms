@@ -25,6 +25,7 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openFragment();
+                return false;
             }
         });
     }

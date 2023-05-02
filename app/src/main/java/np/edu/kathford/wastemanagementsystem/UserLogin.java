@@ -1,12 +1,14 @@
 package np.edu.kathford.wastemanagementsystem;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,15 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //receiving data from signup
+        Intent i=getIntent();
+        int id=i.getIntExtra("id",0);
+        String name1=i.getStringExtra("full_name");
+        String address1=i.getStringExtra("location");
+        String email1=i.getStringExtra("Email_Id");
+        String password1=i.getStringExtra("password");
+        String number1=i.getStringExtra("mobile_number");
+
 
         login_emailId= findViewById(R.id.userEmailId);
         login_password=findViewById(R.id.password);
@@ -37,11 +48,16 @@ public class UserLogin extends AppCompatActivity {
                 String password = login_password.getText().toString().trim();
                 String submit_button = login_btn.getText().toString().trim();
 
-                System.out.println("EMail is : "+email);
-                System.out.println("Password is : "+password);
-//                System.out.println("");
-
-
+                if(email1==email){
+                    if(password1==password){
+                        Toast.makeText(UserLogin.this, "Successful login", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(UserLogin.this, "Password Incorrect", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(UserLogin.this, "Email Incorrect", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
