@@ -74,5 +74,7 @@
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
     <string name="passowrd">Password</string>
+    <string name="category">Category</string>
+    <string name="category_name">Enter name of Category</string>
 
 </resources>
