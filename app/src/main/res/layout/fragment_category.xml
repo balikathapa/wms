@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/linearLayoutContainer">
+    android:background="@color/background_color"
+    android:id="@+id/linearLayoutC">
 
     <TextView
         android:layout_width="match_parent"
@@ -50,5 +51,6 @@
         android:layout_margin="24dp"
         android:padding="30dp"
         android:gravity="center"
+        android:backgroundTint="@color/button_selector_color"
         />
 </LinearLayout>

@@ -2,8 +2,12 @@ package np.edu.kathford.wastemanagementsystem;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,13 +20,23 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentCategory fragmentCategory= new FragmentCategory();
-        FragmentManager fragmentManager= getFragmentManager();
-        FragmentTransaction transaction= fragmentManager.beginTransaction();
-//        transaction.add(R.id.linearLayoutContainer,fragmentCategory);
-        transaction.commit();
-        Log.d("MainActivity","onCreate()");
+        Button button = findViewById(R.id.btn_category);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFragment();
+            }
+        });
     }
+        private void openFragment(){
+            FragmentCategory fragmentCategory = new FragmentCategory();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            //transaction.replace(R.id.linearLayoutContainer,fragmentCategory);
+            transaction.commit();
+            Log.d("MainActivity", "onCreate()");
+        }
+
 
     @Override
     protected void onStart() {
