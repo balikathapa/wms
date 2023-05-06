@@ -11,6 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import np.edu.kathford.wastemanagementsystem.model.Category;
+import np.edu.kathford.wastemanagementsystem.model.CategoryRequest;
+import np.edu.kathford.wastemanagementsystem.retrofit.CategoryService;
+import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
+import np.edu.kathford.wastemanagementsystem.retrofit.UserService;
+
 public class FragmentCategory extends Fragment {
     EditText category_name, description, price;
     Button submit;
@@ -36,22 +42,48 @@ public class FragmentCategory extends Fragment {
 
 
                 //validation for category
-                if(name!=null && !name.isEmpty()){
+                if (name != null && !name.isEmpty()) {
                     Toast.makeText(getActivity(), "Category name is valid", Toast.LENGTH_SHORT).show();
-                    if(des!=null && !des.isEmpty() ){
+                    if (des != null && !des.isEmpty()) {
                         Toast.makeText(getActivity(), "Category description is valid", Toast.LENGTH_SHORT).show();
-                        if(price1!=null && !price1.isEmpty()){
-                            Toast.makeText(getActivity(),"Category price is valid",Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                        if (price1 != null && !price1.isEmpty()) {
+
+
+                            //call the api
+                            System.out.println(" I am Inside Api to integrate ");
+
+                            CategoryService api = new RetrofitService().initialize().create(CategoryService.class);
+
+                            CategoryRequest categoryRequest = new CategoryRequest();
+                            categoryRequest.setName("John");
+                            categoryRequest.setDescription("Test");
+                            categoryRequest.setPrice(800.00);
+                            retrofit2.Call call = api.saveCategory(
+                                   categoryRequest
+                            );
+
+
+                           /*  call.enqueue(new Callback<Category>
+                                @Override
+                                public void onResponse(Call<Category> call, Response<Category> response) {
+                                    // Handle successful response
+                                }
+
+                                @Override
+                                public void onFailure(Call<Category> call, Throwable t) {
+                                    // Handle failure
+                                }
+                            });*/
+
+
+                            Toast.makeText(getActivity(), "Category price is valid", Toast.LENGTH_SHORT).show();
+                        } else {
                             price.setError("Price is invalid");
                         }
-                    }
-                    else{
+                    } else {
                         category_name.setError("Category name is invalid.");
                     }
-                }
-                else{
+                } else {
                     description.setError("Description is not valid.");
                 }
 

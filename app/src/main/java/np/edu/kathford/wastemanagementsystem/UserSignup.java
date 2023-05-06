@@ -2,6 +2,8 @@ package np.edu.kathford.wastemanagementsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telecom.Call;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import np.edu.kathford.wastemanagementsystem.model.User;
+import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
+import np.edu.kathford.wastemanagementsystem.retrofit.UserService;
 
 public class UserSignup extends AppCompatActivity {
 
@@ -47,52 +53,139 @@ public class UserSignup extends AppCompatActivity {
                 pw = password.getText().toString();
                 confirm_pw = confirm_password.getText().toString();
 
-                if (name != null && !name.isEmpty()) {
-                    Toast.makeText(UserSignup.this, "Full name valid", Toast.LENGTH_LONG).show();
-                    if (email != null && !email.isEmpty()) {
-                        Toast.makeText(UserSignup.this, "email is valid", Toast.LENGTH_LONG).show();
-                        if (pw != null && !pw.isEmpty()) {
-//                            public boolean isValidPassword(String pass_w){
-//                                String pattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$";
-//                                // At least 8 characters, at least one letter, at least one number, and at least one special character
-//                                Pattern p = Pattern.compile(pattern);
-//                                Matcher m = p.matcher(pw);
-//                                return m.matches();
-                            if (number != null && !number.isEmpty()) {
-                                if (number.length() == 10) {
-                                    Toast.makeText(UserSignup.this, "Number is valid", Toast.LENGTH_LONG).show();
-                                    if (address != null && !address.isEmpty()) {
-                                        Toast.makeText(UserSignup.this, "Address is valid", Toast.LENGTH_LONG).show();
-                                        if (confirm_pw != null && !confirm_pw.isEmpty()) {
-                                            if (confirm_pw == pw) {
-                                                Toast.makeText(UserSignup.this, "Confirm password valid", Toast.LENGTH_LONG).show();
-                                            } else {
-                                                confirm_password.setError("Input the correct password");
-                                            }
-                                        } else {
-                                            password.setError("Enter the password in correct format");
-                                        }
-                                    } else {
-                                        location.setError("Enter the address");
-                                    }
-                                } else {
-                                    mobile_number.setError("Mobile number should have at least ten digits");
-                                }
-                            } else {
-                                mobile_number.setError("Input mobile number");
-                            }
-                        } else {
-                            password.setError("Password must not be empty");
-                        }
+                if (name.isEmpty()) {
+                    full_name.setError("Full name is required");
+                    full_name.requestFocus();
+                    return;
+                }
 
-                    }
-                    else{
-                        email_id.setError("Email must not be empty");
-                    }
+                if (email.isEmpty()) {
+                    email_id.setError("Email is required");
+                    email_id.requestFocus();
+                    return;
                 }
-                else {
-                    full_name.setError("Name field must not be empty");
+
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    email_id.setError("Please enter a valid email address");
+                    email_id.requestFocus();
+                    return;
                 }
+
+                if (number.isEmpty()) {
+                    mobile_number.setError("Phone number is required");
+                    mobile_number.requestFocus();
+                    return;
+                }
+                if (number.length() != 10) {
+                    mobile_number.setError("Mobile number should have 10 digits");
+                    mobile_number.requestFocus();
+                    return;
+                }
+
+                if (address.isEmpty()) {
+                    location.setError("Location is required");
+                    location.requestFocus();
+                    return;
+                }
+
+                if (pw.isEmpty()) {
+                    password.setError("Password is required");
+                    password.requestFocus();
+                    return;
+                }
+
+                if (pw.length() <=8) {
+                    password.setError("Password should be at least 8 characters long");
+                    password.requestFocus();
+                    return;
+                }
+
+                if (confirm_pw.isEmpty()) {
+                    confirm_password.setError("Confirm password is required");
+                    confirm_password.requestFocus();
+                    return;
+                }
+
+                if (!confirm_pw.equals(pw)) {
+                    confirm_password.setError("Passwords do not match");
+                    confirm_password.requestFocus();
+                    return;
+                }
+
+
+//                if (name != null && !name.isEmpty()) {
+//                    Toast.makeText(UserSignup.this, "Full name valid", Toast.LENGTH_LONG).show();
+//                    if (email != null && !email.isEmpty()) {
+//                        Toast.makeText(UserSignup.this, "email is valid", Toast.LENGTH_LONG).show();
+//                        if (pw != null && !pw.isEmpty()) {
+////                            public boolean isValidPassword(String pass_w){
+////                                String pattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$";
+////                                // At least 8 characters, at least one letter, at least one number, and at least one special character
+////                                Pattern p = Pattern.compile(pattern);
+////                                Matcher m = p.matcher(pw);
+////                                return m.matches();
+//                            if (number != null && !number.isEmpty()) {
+//                                if (number.length() == 10) {
+//                                    Toast.makeText(UserSignup.this, "Number is valid", Toast.LENGTH_LONG).show();
+//                                    if (address != null && !address.isEmpty()) {
+//                                        Toast.makeText(UserSignup.this, "Address is valid", Toast.LENGTH_LONG).show();
+//                                        if (confirm_pw != null && !confirm_pw.isEmpty()) {
+//                                            if (confirm_pw == pw) {
+//
+//                                                //call the api
+//                                                System.out.println(" I am Inside Api to integrate ");
+//
+//                                                UserService api = new RetrofitService().initialize().create(UserService.class);
+//
+//                                                retrofit2.Call call = api.saveUserSignup(
+//                                                        "John",
+//                                                        "johndoe",
+//                                                        "password123",
+//                                                        "johndoe@example.com",
+//                                                        "customer"
+//                                                );
+//
+//                                               /* call.enqueue(new Callback<User>() {
+//                                                    @Override
+//                                                    public void onResponse(Call<User> call, Response<User> response) {
+//                                                        // Handle successful response
+//                                                    }
+//
+//                                                    @Override
+//                                                    public void onFailure(Call<User> call, Throwable t) {
+//                                                        // Handle failure
+//                                                    }
+//                                                });*/
+//
+//
+//                                                Toast.makeText(UserSignup.this, "Confirm password valid", Toast.LENGTH_LONG).show();
+//                                            } else {
+//                                                confirm_password.setError("Input the correct password");
+//                                            }
+//                                        } else {
+//                                            password.setError("Enter the password in correct format");
+//                                        }
+//                                    } else {
+//                                        location.setError("Enter the address");
+//                                    }
+//                                } else {
+//                                    mobile_number.setError("Mobile number should have at least ten digits");
+//                                }
+//                            } else {
+//                                mobile_number.setError("Input mobile number");
+//                            }
+//                        } else {
+//                            password.setError("Password must not be empty");
+//                        }
+//
+//                    }
+//                    else{
+//                        email_id.setError("Email must not be empty");
+//                    }
+//                }
+//                else {
+//                    full_name.setError("Name field must not be empty");
+//                }
 
                 //passing data to User-login
                 Intent i= new Intent(UserSignup.this, UserLogin.class);

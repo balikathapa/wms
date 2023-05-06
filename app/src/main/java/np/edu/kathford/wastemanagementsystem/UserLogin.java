@@ -18,7 +18,7 @@ public class UserLogin extends AppCompatActivity {
     private EditText login_emailId, login_password;
     private CheckBox showPassword;
     private Button login_btn;
-    private TextView create_account;
+    private TextView create_account, signupHereTextView;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class UserLogin extends AppCompatActivity {
         login_btn=findViewById(R.id.loginBtn);
         showPassword=findViewById(R.id.show_hide_password);
         create_account=findViewById(R.id.createAccount);
+        signupHereTextView=findViewById(R.id.createAccount);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +59,14 @@ public class UserLogin extends AppCompatActivity {
                 }else{
                     Toast.makeText(UserLogin.this, "Email Incorrect", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        signupHereTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(UserLogin.this,UserSignup.class);
+                startActivity(intent);
             }
         });
     }

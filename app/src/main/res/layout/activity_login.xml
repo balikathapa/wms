@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/background_color"
+    >
 
     <LinearLayout
         android:id="@+id/login_layout"
@@ -112,5 +114,7 @@
         android:padding="5dp"
         android:text="@string/newUser"
         android:textColor="@color/white"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:onClick="openSignupActivity"
+        />
 </RelativeLayout>
