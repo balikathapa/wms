@@ -18,7 +18,7 @@ public class UserLogin extends AppCompatActivity {
     private EditText login_emailId, login_password;
     private CheckBox showPassword;
     private Button login_btn;
-    private TextView create_account, signupHereTextView;
+    private TextView create_account, signupHereTextView, resetPassword;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class UserLogin extends AppCompatActivity {
 
         //receiving data from signup
         Intent i=getIntent();
-        int id=i.getIntExtra("id",0);
+        int id=i.getIntExtra("id",001);
         String name1=i.getStringExtra("full_name");
         String address1=i.getStringExtra("location");
         String email1=i.getStringExtra("Email_Id");
@@ -41,6 +41,7 @@ public class UserLogin extends AppCompatActivity {
         showPassword=findViewById(R.id.show_hide_password);
         create_account=findViewById(R.id.createAccount);
         signupHereTextView=findViewById(R.id.createAccount);
+        resetPassword=findViewById(R.id.forgot_password);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,13 +60,32 @@ public class UserLogin extends AppCompatActivity {
                 }else{
                     Toast.makeText(UserLogin.this, "Email Incorrect", Toast.LENGTH_LONG).show();
                 }
+
+
+                //passing data to ResetPassword
+                Intent in= new Intent(UserLogin.this,ResetPassword.class);
+                in.putExtra("id", 002);
+                in.putExtra("email" ,email);
+
             }
+
+
+
+
         });
 
         signupHereTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(UserLogin.this,UserSignup.class);
+                startActivity(intent);
+            }
+        });
+
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent (UserLogin.this,ResetPassword.class);
                 startActivity(intent);
             }
         });

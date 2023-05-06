@@ -20,6 +20,7 @@
 
         <activity android:name=".UserLogin"></activity>
         <activity android:name=".UserSignup"></activity>
+        <activity android:name=".ResetPassword"></activity>
 
     </application>
 
