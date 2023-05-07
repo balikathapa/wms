@@ -35,10 +35,14 @@ public class ResetPassword extends AppCompatActivity {
         submitResetPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //getting data
                 String emailResetPassword=emailResetPw.getText().toString().trim();
                 String newPw= newPassword.getText().toString().trim();
                 String confirmNewPw=confirmNewPassword.getText().toString().trim();
 
+
+                //data validation
                 if(receivedEmail!=emailResetPassword){
                     emailResetPw.setError("Please enter your registered email");
                     emailResetPw.requestFocus();
