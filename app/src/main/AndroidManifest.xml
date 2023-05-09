@@ -21,7 +21,10 @@
         <activity android:name=".UserLogin"></activity>
         <activity android:name=".UserSignup"></activity>
         <activity android:name=".ResetPassword"></activity>
-        <activity android:name=".Category"></activity>
+        <activity android:name=".AdminCategory"></activity>
+        <activity android:name=".AdminDashboard"></activity>
+
+
 
     </application>
 

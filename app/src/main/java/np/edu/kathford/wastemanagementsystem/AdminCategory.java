@@ -4,16 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import np.edu.kathford.wastemanagementsystem.model.CategoryRequest;
-import np.edu.kathford.wastemanagementsystem.retrofit.CategoryService;
-import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
-
-public class Category extends AppCompatActivity {
+public class AdminCategory extends AppCompatActivity {
 
     EditText category_name, description, price;
     Button submit;
@@ -21,7 +16,7 @@ public class Category extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_admin_category);
 
         category_name = findViewById(R.id.category_name);
         description = findViewById(R.id.category_description);
@@ -54,17 +49,17 @@ public class Category extends AppCompatActivity {
                 }
 
                 //call the api
-                System.out.println(" I am Inside Api to integrate ");
-
-                CategoryService api = new RetrofitService().initialize().create(CategoryService.class);
-
-                CategoryRequest categoryRequest = new CategoryRequest();
-                categoryRequest.setName("John");
-                categoryRequest.setDescription("Test");
-                categoryRequest.setPrice(800.00);
-                retrofit2.Call call = api.saveCategory(
-                        categoryRequest
-                );
+//                System.out.println(" I am Inside Api to integrate ");
+//
+//                CategoryService api = new RetrofitService().initialize().create(CategoryService.class);
+//
+//                CategoryRequest categoryRequest = new CategoryRequest();
+//                categoryRequest.setName("John");
+//                categoryRequest.setDescription("Test");
+//                categoryRequest.setPrice(800.00);
+//                retrofit2.Call call = api.saveCategory(
+//                        categoryRequest
+//                );
 
 
                            /*  call.enqueue(new Callback<Category>

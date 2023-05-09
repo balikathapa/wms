@@ -26,7 +26,7 @@ public class UserSignup extends AppCompatActivity {
     private EditText full_name, email_id, mobile_number, location, password, confirm_password;
     private CheckBox terms_and_conditions;
     private Button signup;
-    private TextView login_here;
+    private TextView login_here, already_user;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,7 @@ public class UserSignup extends AppCompatActivity {
         terms_and_conditions=findViewById(R.id.terms_conditions);
         signup=findViewById(R.id.signUpBtn);
         login_here=findViewById(R.id.already_user);
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,6 +201,14 @@ public class UserSignup extends AppCompatActivity {
             }
 
 
+        });
+
+        login_here.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserSignup.this, UserLogin.class);
+                startActivity(intent);
+            }
         });
     }
 }

@@ -45,6 +45,12 @@
         android:layout_margin="24dp"
         android:padding="30dp"
         />
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="24dp"-->
+<!--        hin-->
+<!--        />-->
     <Button
         android:id="@+id/category_submit"
         android:layout_width="match_parent"

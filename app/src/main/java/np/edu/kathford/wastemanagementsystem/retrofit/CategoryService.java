@@ -12,7 +12,6 @@ public interface CategoryService {
     @FormUrlEncoded
     @POST("api/category/save-update")
     Call saveCategory(
-            @Body CategoryRequest categoryRequest
-            );
+            @Field("name") String name);
 }
 
