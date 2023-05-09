@@ -1,5 +1,6 @@
 package np.edu.kathford.wastemanagementsystem;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -18,39 +19,39 @@ import androidx.fragment.app.FragmentTransaction;
 public class Main extends AppCompatActivity {
 
     private ImageButton login_button;
+    private  CardView D1, D2, D3, D4, D5, D6;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.btn_category);
-        ImageButton login_button=findViewById(R.id.button_login);
+        D1=(CardView) findViewById(R.id.d1);
+        D2=(CardView) findViewById(R.id.d2);
+        D3=(CardView) findViewById(R.id.d3);
+        D4=(CardView) findViewById(R.id.d4);
+        D5=(CardView) findViewById(R.id.d5);
+        D6=(CardView) findViewById(R.id.d6);
 
-        login_button.setOnClickListener(new View.OnClickListener() {
+
+        D1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(Main.this,UserLogin.class);
                 startActivity(intent);
+
             }
         });
-        button.setOnClickListener(new View.OnClickListener() {
+
+        D2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openFragment();
-//                return false;
+                Intent intent = new Intent(Main.this, Category.class);
+                startActivity(intent);
+
             }
         });
     }
-        private void openFragment(){
-            FragmentCategory fragmentCategory = new FragmentCategory();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.linearLayoutContainer,fragmentCategory);
-            transaction.commit();
-            Log.d("MainActivity", "onCreate()");
-        }
-
 
     @Override
     protected void onStart() {

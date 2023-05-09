@@ -67,6 +67,7 @@ public class UserLogin extends AppCompatActivity {
                 in.putExtra("id", 002);
                 in.putExtra("email" ,email);
 
+
             }
 
 
@@ -79,6 +80,7 @@ public class UserLogin extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent= new Intent(UserLogin.this,UserSignup.class);
                 startActivity(intent);
+
             }
         });
 
@@ -87,6 +89,7 @@ public class UserLogin extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent =new Intent (UserLogin.this,ResetPassword.class);
                 startActivity(intent);
+
             }
         });
     }

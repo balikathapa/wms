@@ -56,60 +56,59 @@ public class UserSignup extends AppCompatActivity {
                 if (name.isEmpty()) {
                     full_name.setError("Full name is required");
                     full_name.requestFocus();
-                    return;
+
                 }
 
                 if (email.isEmpty()) {
                     email_id.setError("Email is required");
                     email_id.requestFocus();
-                    return;
+
                 }
 
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     email_id.setError("Please enter a valid email address");
                     email_id.requestFocus();
-                    return;
+
                 }
 
                 if (number.isEmpty()) {
                     mobile_number.setError("Phone number is required");
                     mobile_number.requestFocus();
-                    return;
                 }
                 if (number.length() != 10) {
                     mobile_number.setError("Mobile number should have 10 digits");
                     mobile_number.requestFocus();
-                    return;
+
                 }
 
                 if (address.isEmpty()) {
                     location.setError("Location is required");
                     location.requestFocus();
-                    return;
+
                 }
 
                 if (pw.isEmpty()) {
                     password.setError("Password is required");
                     password.requestFocus();
-                    return;
+
                 }
 
                 if (pw.length() <=8) {
                     password.setError("Password should be at least 8 characters long");
                     password.requestFocus();
-                    return;
+
                 }
 
                 if (confirm_pw.isEmpty()) {
                     confirm_password.setError("Confirm password is required");
                     confirm_password.requestFocus();
-                    return;
+
                 }
 
                 if (!confirm_pw.equals(pw)) {
                     confirm_password.setError("Passwords do not match");
                     confirm_password.requestFocus();
-                    return;
+
                 }
 
 
@@ -196,6 +195,7 @@ public class UserSignup extends AppCompatActivity {
                 i.putExtra("location", address);
                 i.putExtra("password", pw);
                 startActivity(i);
+
 
             }
 

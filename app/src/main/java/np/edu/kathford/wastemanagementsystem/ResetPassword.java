@@ -50,20 +50,21 @@ public class ResetPassword extends AppCompatActivity {
                 if (newPw.length() <=8) {
                     newPassword.setError("Password should be at least 8 characters long");
                     newPassword.requestFocus();
-                    return;
+
                 }
 
                 if (newPw.isEmpty()) {
                     newPassword.setError("Confirm password is required");
                     newPassword.requestFocus();
-                    return;
+
                 }
 
                 if (!confirmNewPw.equals(newPw)) {
                     confirmNewPassword.setError("Passwords do not match");
                     confirmNewPassword.requestFocus();
-                    return;
+
                 }
+
             }
         });
 
@@ -72,6 +73,7 @@ public class ResetPassword extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ResetPassword.this, UserLogin.class);
                 startActivity(intent);
+
             }
         });
 

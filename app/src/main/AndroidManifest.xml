@@ -21,6 +21,7 @@
         <activity android:name=".UserLogin"></activity>
         <activity android:name=".UserSignup"></activity>
         <activity android:name=".ResetPassword"></activity>
+        <activity android:name=".Category"></activity>
 
     </application>
 
