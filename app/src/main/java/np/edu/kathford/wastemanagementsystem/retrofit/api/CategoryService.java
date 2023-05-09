@@ -1,5 +1,9 @@
-package np.edu.kathford.wastemanagementsystem.retrofit.api;
+package np.edu.kathford.signupform.retrofit.api;
 
+
+import java.math.BigDecimal;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -9,7 +13,8 @@ public interface CategoryService {
 
     @FormUrlEncoded
     @POST("api/category/save-update")
-    Call saveCategory(
-            @Field("name") String name);
-}
+    Call<ResponseBody> saveOrUpdateCategory(
+            @Field("name") String name,
+            @Field("price") BigDecimal price);
 
+}

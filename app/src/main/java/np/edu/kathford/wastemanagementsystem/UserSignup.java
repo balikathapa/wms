@@ -12,8 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
-
 public class UserSignup extends AppCompatActivity {
 
     private EditText full_name, email_id, mobile_number, location, password, confirm_password;

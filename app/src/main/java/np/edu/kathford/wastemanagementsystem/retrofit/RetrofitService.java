@@ -1,4 +1,4 @@
-package np.edu.kathford.signupform.retrofit;
+package np.edu.kathford.wastemanagementsystem.retrofit;
 
 import com.google.gson.Gson;
 
