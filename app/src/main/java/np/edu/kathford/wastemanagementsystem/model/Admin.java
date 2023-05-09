@@ -5,23 +5,29 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class User {
+public class Admin {
 
     private Long id;
 
     private String name;
 
-    private String salt;
-
     private String username;
+
+    private String salt;
 
     private String password;
 
     private String email;
 
-    private String type;  // eg : driver / collector or user/client/general public
+    private String address;
+
+    private String role;
 
     private boolean blocked;
+
+    private String phoneNo;
+
+    private String mobileNo;
 
     private boolean status;
 

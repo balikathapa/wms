@@ -5,19 +5,16 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class Category {
+public class BaseModel {
 
     private Long id;
 
-    private String name;
+    private User createdBy;
 
-    private boolean status;
-
-    private Admin createdBy;
-
-    private Admin modifiedBy;
+    private User modifiedBy;
 
     private Date createdDate;
 
     private Date modifiedDate;
+
 }

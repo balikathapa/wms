@@ -2,24 +2,17 @@ package np.edu.kathford.wastemanagementsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import np.edu.kathford.wastemanagementsystem.model.User;
 import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
-import np.edu.kathford.wastemanagementsystem.retrofit.UserService;
 
 public class UserSignup extends AppCompatActivity {
 

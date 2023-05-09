@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem.retrofit;
+package np.edu.kathford.wastemanagementsystem.retrofit.api;
 
 import java.util.Date;
 
