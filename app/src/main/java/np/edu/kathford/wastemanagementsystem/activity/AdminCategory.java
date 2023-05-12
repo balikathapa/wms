@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem;
+package np.edu.kathford.wastemanagementsystem.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import np.edu.kathford.wastemanagementsystem.R;
 
 public class AdminCategory extends AppCompatActivity {
 
@@ -73,9 +75,6 @@ public class AdminCategory extends AppCompatActivity {
                                     // Handle failure
                                 }
                             });*/
-
-
-
             }
         });
 

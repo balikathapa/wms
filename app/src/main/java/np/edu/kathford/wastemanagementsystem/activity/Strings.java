@@ -1,6 +1,6 @@
-package np.edu.kathford.wastemanagementsystem;
+package np.edu.kathford.wastemanagementsystem.activity;
 
-public class Utils {
+public class Strings {
     //Email Validation pattern
     public static final String regEx = "";
 

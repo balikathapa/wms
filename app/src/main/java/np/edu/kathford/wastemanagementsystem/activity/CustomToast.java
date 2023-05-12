@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem;
+package np.edu.kathford.wastemanagementsystem.activity;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import np.edu.kathford.wastemanagementsystem.R;
 
 public class CustomToast {
     // Custom Toast Method

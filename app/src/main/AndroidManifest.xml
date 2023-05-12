@@ -11,18 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WasteManagementSystem"
         tools:targetApi="31" >
-    <activity android:name=".Main" android:exported="true">
+    <activity android:name=".activity.Main" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
     </activity>
 
-        <activity android:name=".UserLogin"></activity>
-        <activity android:name=".UserSignup"></activity>
-        <activity android:name=".ResetPassword"></activity>
-        <activity android:name=".AdminCategory"></activity>
-        <activity android:name=".AdminDashboard"></activity>
+        <activity android:name=".activity.UserLogin"></activity>
+        <activity android:name=".activity.UserSignup"></activity>
+        <activity android:name=".activity.ResetPassword"></activity>
+        <activity android:name=".activity.AdminCategory"></activity>
+        <activity android:name=".activity.AdminDashboard"></activity>
 
 
 

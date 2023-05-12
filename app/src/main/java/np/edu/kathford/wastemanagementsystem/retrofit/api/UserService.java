@@ -1,8 +1,5 @@
 package np.edu.kathford.wastemanagementsystem.retrofit.api;
 
-import java.util.Date;
-
-import np.edu.kathford.wastemanagementsystem.model.User;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -17,6 +14,8 @@ public interface UserService {
             @Field("username") String username,
             @Field("password") String password,
             @Field("email") String email,
+            @Field("address") String address,
+            @Field("mobileNo") String mobileNo,
             @Field("type") String type
     );
 }

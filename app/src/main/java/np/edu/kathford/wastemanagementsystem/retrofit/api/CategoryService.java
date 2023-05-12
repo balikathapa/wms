@@ -1,4 +1,4 @@
-package np.edu.kathford.signupform.retrofit.api;
+package np.edu.kathford.wastemanagementsystem.retrofit.api;
 
 
 import java.math.BigDecimal;

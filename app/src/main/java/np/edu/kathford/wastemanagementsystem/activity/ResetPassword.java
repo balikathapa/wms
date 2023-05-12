@@ -1,14 +1,15 @@
-package np.edu.kathford.wastemanagementsystem;
+package np.edu.kathford.wastemanagementsystem.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import np.edu.kathford.wastemanagementsystem.R;
 
 
 public class ResetPassword extends AppCompatActivity {

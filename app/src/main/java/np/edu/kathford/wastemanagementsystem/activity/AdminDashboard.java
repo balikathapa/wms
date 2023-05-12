@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem;
+package np.edu.kathford.wastemanagementsystem.activity;
 
 import androidx.cardview.widget.CardView;
 
@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import np.edu.kathford.wastemanagementsystem.R;
 
 
 public class AdminDashboard extends AppCompatActivity {
