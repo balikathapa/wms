@@ -1,6 +1,6 @@
 package np.edu.kathford.wastemanagementsystem.retrofit.api;
 
-import np.edu.kathford.wastemanagementsystem.Util.ApiResponse;
+import np.edu.kathford.wastemanagementsystem.util.ApiResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;

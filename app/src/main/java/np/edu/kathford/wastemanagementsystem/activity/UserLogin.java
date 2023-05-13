@@ -20,10 +20,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import np.edu.kathford.wastemanagementsystem.R;
-import np.edu.kathford.wastemanagementsystem.Util.ApiResponse;
+import np.edu.kathford.wastemanagementsystem.util.ApiResponse;
 import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
 import np.edu.kathford.wastemanagementsystem.retrofit.api.UserService;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

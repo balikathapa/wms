@@ -17,11 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 
 import np.edu.kathford.wastemanagementsystem.R;
-import np.edu.kathford.wastemanagementsystem.Util.ApiResponse;
-import np.edu.kathford.wastemanagementsystem.model.User;
+import np.edu.kathford.wastemanagementsystem.util.ApiResponse;
 import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
 import np.edu.kathford.wastemanagementsystem.retrofit.api.UserService;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

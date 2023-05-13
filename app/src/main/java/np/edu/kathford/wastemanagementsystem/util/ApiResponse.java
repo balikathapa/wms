@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem.Util;
+package np.edu.kathford.wastemanagementsystem.util;
 
 import lombok.Data;
 import lombok.Getter;
