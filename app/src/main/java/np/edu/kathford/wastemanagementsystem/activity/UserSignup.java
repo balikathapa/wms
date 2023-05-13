@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 
 import np.edu.kathford.wastemanagementsystem.R;
+import np.edu.kathford.wastemanagementsystem.Util.ApiResponse;
+import np.edu.kathford.wastemanagementsystem.model.User;
 import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
 import np.edu.kathford.wastemanagementsystem.retrofit.api.UserService;
 import okhttp3.ResponseBody;
@@ -27,6 +29,8 @@ import retrofit2.Response;
 public class UserSignup extends AppCompatActivity {
 
     private EditText full_name;
+
+    private EditText username;
     private EditText email_id;
     private EditText mobile_number;
     private EditText location;
@@ -42,6 +46,7 @@ public class UserSignup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         full_name = findViewById(R.id.fullName);
+        username = findViewById(R.id.usernameId);
         email_id = findViewById(R.id.userEmailId);
         mobile_number = findViewById(R.id.mobileNumber);
         location = findViewById(R.id.location);
@@ -55,17 +60,23 @@ public class UserSignup extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name, email, number, address, pw, confirm_pw;
-                name = full_name.getText().toString();
-                email = email_id.getText().toString();
-                number = mobile_number.getText().toString();
-                address = location.getText().toString();
-                pw = password.getText().toString();
-                confirm_pw = confirm_password.getText().toString();
+                String name = full_name.getText().toString();
+                String userName = username.getText().toString();
+                String email = email_id.getText().toString();
+                String number = mobile_number.getText().toString();
+                String address = location.getText().toString();
+                String pw = password.getText().toString();
+                String confirm_pw = confirm_password.getText().toString();
 
                 if (name.isEmpty()) {
                     full_name.setError("Full name is required");
                     full_name.requestFocus();
+
+                }
+
+                if (userName.isEmpty()) {
+                    username.setError("User name is required");
+                    username.requestFocus();
 
                 }
 
@@ -113,7 +124,8 @@ public class UserSignup extends AppCompatActivity {
                 }
 
                 //call the api using retrofit
-                saveSignup(name, "", pw, email, address, number, "User");
+                saveSignup(name, userName, pw, email, address, number, "User");
+
 
                 //passing data to User-login
                 /*Intent i= new Intent(UserSignup.this, UserLogin.class);
@@ -136,19 +148,21 @@ public class UserSignup extends AppCompatActivity {
         });
     }
 
-    public void saveSignup(String name, String username, String password,
-                           String email, String address, String mobileNo, String type) {
+    public <T> void saveSignup(String name, String username, String password,
+                               String email, String address, String mobileNo, String type) {
         RetrofitService retrofitService = new RetrofitService();
-
         UserService userSignupService = retrofitService.getRetrofit().create(UserService.class);
-        retrofit2.Call<ResponseBody> call = userSignupService.saveUserSignup(
+
+        Call<ApiResponse> call = userSignupService.saveUserSignup(
                 name, username, password, email, address, mobileNo, type
         );
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<ApiResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 Log.i("Success", new Gson().toJson(response.body()));
+                ApiResponse apiResponse = response.body();
+                Log.i("Api Response ", new Gson().toJson(apiResponse));
                 if (response.isSuccessful()) {
                     Intent i = new Intent(UserSignup.this, UserLogin.class);
                     startActivity(i);
@@ -159,7 +173,7 @@ public class UserSignup extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
                 Log.e("Success", t.getMessage());
                 Toast.makeText(UserSignup.this, "Failed to save data.", Toast.LENGTH_SHORT).show();
             }

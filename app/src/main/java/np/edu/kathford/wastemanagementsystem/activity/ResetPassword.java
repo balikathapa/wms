@@ -13,8 +13,12 @@ import np.edu.kathford.wastemanagementsystem.R;
 
 
 public class ResetPassword extends AppCompatActivity {
-    private EditText emailResetPw, passwordResetPw, newPassword, confirmNewPassword;
-    private TextView submitResetPw, backResetPw;
+    private EditText emailResetPw;
+    private EditText passwordResetPw;
+    private EditText newPassword;
+    private EditText confirmNewPassword;
+    private TextView submitResetPw;
+    private TextView backResetPw;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

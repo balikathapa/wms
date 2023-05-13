@@ -30,7 +30,7 @@ public class AdminCategory extends AppCompatActivity {
             public void onClick(View view) {
 
                 String name = category_name.getText().toString();
-                String des = description.getText().toString();
+//                String des = description.getText().toString();
                 String price1 = price.getText().toString();
 
 
@@ -40,41 +40,12 @@ public class AdminCategory extends AppCompatActivity {
                     category_name.requestFocus();
                 }
 
-                if (des.isEmpty()) {
-                    description.setError("Full name is required");
-                    description.requestFocus();
-                }
-
-                if (price1.isEmpty()) {
-                    price.setError("Full name is required");
+                /*if (price1.isEmpty()) {
+                    price.setError("Price is required");
                     price.requestFocus();
-                }
+                }*/
 
-                //call the api
-//                System.out.println(" I am Inside Api to integrate ");
-//
-//                CategoryService api = new RetrofitService().initialize().create(CategoryService.class);
-//
-//                CategoryRequest categoryRequest = new CategoryRequest();
-//                categoryRequest.setName("John");
-//                categoryRequest.setDescription("Test");
-//                categoryRequest.setPrice(800.00);
-//                retrofit2.Call call = api.saveCategory(
-//                        categoryRequest
-//                );
-
-
-                           /*  call.enqueue(new Callback<Category>
-                                @Override
-                                public void onResponse(Call<Category> call, Response<Category> response) {
-                                    // Handle successful response
-                                }
-
-                                @Override
-                                public void onFailure(Call<Category> call, Throwable t) {
-                                    // Handle failure
-                                }
-                            });*/
+                //calling api should be here
             }
         });
 
