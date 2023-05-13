@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem.activity;
+package np.edu.kathford.wastemanagementsystem.util;
 
 public class Strings {
     //Email Validation pattern

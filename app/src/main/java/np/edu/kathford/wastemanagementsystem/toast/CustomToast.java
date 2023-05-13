@@ -1,4 +1,4 @@
-package np.edu.kathford.wastemanagementsystem.activity;
+package np.edu.kathford.wastemanagementsystem.toast;
 
 import android.content.Context;
 import android.view.Gravity;

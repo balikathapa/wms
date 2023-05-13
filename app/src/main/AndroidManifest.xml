@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,10 +26,13 @@
 
         <activity android:name=".activity.UserLogin"></activity>
         <activity android:name=".activity.UserSignup"></activity>
-        <activity android:name=".activity.ResetPassword"></activity>
+        <activity android:name=".activity.UserResetPassword"></activity>
+        <activity android:name=".activity.AdminResetPassword"></activity>
         <activity android:name=".activity.AdminCategory"></activity>
         <activity android:name=".activity.AdminDashboard"></activity>
         <activity android:name=".activity.UserDashboard"></activity>
+        <activity android:name=".activity.AdminSignup"></activity>
+        <activity android:name=".activity.AdminLogin"></activity>
 
     </application>
 

@@ -18,13 +18,14 @@ import com.google.gson.Gson;
 
 import np.edu.kathford.wastemanagementsystem.R;
 import np.edu.kathford.wastemanagementsystem.retrofit.RetrofitService;
+import np.edu.kathford.wastemanagementsystem.retrofit.api.AdminService;
 import np.edu.kathford.wastemanagementsystem.retrofit.api.UserService;
 import np.edu.kathford.wastemanagementsystem.util.ApiResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserLogin extends AppCompatActivity {
+public class AdminLogin extends AppCompatActivity {
 
     private EditText login_emailId;
     private EditText login_password;
@@ -39,7 +40,7 @@ public class UserLogin extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_admin_login);
 
         //receiving data from signup
         Intent i = getIntent();
@@ -61,36 +62,16 @@ public class UserLogin extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String username = login_emailId.getText().toString().trim();
                 String password = login_password.getText().toString().trim();
-//                String submit_button = login_btn.getText().toString().trim();
-
-                checkUserLogin(username, password);
-
-               /* if(email1==email){
-                    if(password1==password){
-                        Toast.makeText(UserLogin.this, "Successful login", Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        Toast.makeText(UserLogin.this, "Password Incorrect", Toast.LENGTH_LONG).show();
-                    }
-                }else{
-                    Toast.makeText(UserLogin.this, "Email Incorrect", Toast.LENGTH_LONG).show();
-                }*/
-
-
-                //passing data to ResetPassword
-                /*Intent in= new Intent(UserLogin.this,ResetPassword.class);
-                in.putExtra("id", 002);
-                in.putExtra("email" ,email);*/
+                checkLogin(username, password);
             }
         });
 
         signupHereTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserLogin.this, UserSignup.class);
+                Intent intent = new Intent(AdminLogin.this, AdminSignup.class);
                 startActivity(intent);
             }
         });
@@ -104,16 +85,16 @@ public class UserLogin extends AppCompatActivity {
         });*/
     }
 
-    public void checkUserLogin(String username, String password) {
+    public void checkLogin(String username, String password) {
         RetrofitService retrofitService = new RetrofitService();
 
-        UserService userSignupService = retrofitService.getRetrofit().create(UserService.class);
-        Call<ApiResponse> call = userSignupService.checkLogin(username, password);
+        AdminService adminService = retrofitService.getRetrofit().create(AdminService.class);
+        Call<ApiResponse> call = adminService.checkLogin(username, password);
 
         call.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                Log.i("Success test ", new Gson().toJson(response.body()));
+                Log.i("Success ", new Gson().toJson(response.body()));
                 if (response.isSuccessful()) {
 //                    Gson gson = new Gson();
                     /*assert response.body() != null;
@@ -129,18 +110,18 @@ public class UserLogin extends AppCompatActivity {
                     }*/
 //                   Log.i("Api Response ", new Gson().toJson(apiResponse));
 //                    Intent i = new Intent(UserLogin.this, UserDashboard.class);
-                    Intent i = new Intent(UserLogin.this, AdminDashboard.class);
+                    Intent i = new Intent(AdminLogin.this, AdminDashboard.class);
                     startActivity(i);
-                    Toast.makeText(UserLogin.this, "Login successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminLogin.this, "Login successfully.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(UserLogin.this, "Something is not right.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminLogin.this, "Something is not right.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
                 Log.e("Success", t.getMessage());
-                Toast.makeText(UserLogin.this, "Failed to login data.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminLogin.this, "Failed to login data.", Toast.LENGTH_SHORT).show();
             }
         });
     }

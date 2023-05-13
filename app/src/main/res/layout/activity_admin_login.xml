@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="10dp"
-            android:text="@string/login"
+            android:text="Admin Login"
             android:textColor="@color/white_greyish"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -114,33 +114,5 @@
         android:padding="5dp"
         android:text="@string/newUser"
         android:textColor="@color/white"/>
-
-    <!--<TextView
-        android:id="@+id/adminSignupId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:onClick="openAdminSignupActivity"
-        android:padding="25dp"
-        android:text="Admin Sigup"
-        android:textColor="@color/white"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/adminLoginId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40sp"
-        android:gravity="center"
-        android:onClick="openAdminLoginActivity"
-        android:padding="25dp"
-        android:text="Admin Login"
-        android:textColor="@color/white"
-        android:textSize="15sp" />-->
 
 </RelativeLayout>
