@@ -18,7 +18,7 @@ public class RetrofitService {
 
     public void initializeRetrofit() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.66:8080/wms/")
+                .baseUrl("http://192.168.1.68:8080/wms/")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
 //                .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .build();
