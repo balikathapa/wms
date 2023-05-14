@@ -46,7 +46,7 @@
             android:padding="15dp"
             >
             <androidx.cardview.widget.CardView
-                android:id="@+id/d1"
+                android:id="@+id/profileId"
                 app:cardBackgroundColor="@color/grid_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -86,7 +86,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/d2"
+                android:id="@+id/categoryId"
                 app:cardBackgroundColor="@color/grid_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -126,7 +126,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/d3"
+                android:id="@+id/manageUserId"
                 app:cardBackgroundColor="@color/grid_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -166,7 +166,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/d4"
+                android:id="@+id/signupAdminId"
                 app:cardBackgroundColor="@color/grid_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -206,7 +206,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/d5"
+                android:id="@+id/viewPaymentId"
                 app:cardBackgroundColor="@color/grid_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -246,7 +246,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/d6"
+                android:id="@+id/logoutId"
                 app:cardBackgroundColor="@color/grid_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

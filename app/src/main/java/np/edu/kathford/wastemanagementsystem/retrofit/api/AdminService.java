@@ -6,34 +6,33 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface UserService {
+public interface AdminService {
 
     @FormUrlEncoded
-    @POST("api/user/signup")
-    Call<ApiResponse> saveUserSignup(
+    @POST("api/admin/signup/save")
+    Call<ApiResponse> saveAdminSignup(
             @Field("name") String name,
             @Field("username") String username,
             @Field("password") String password,
             @Field("email") String email,
-            @Field("address") String address,
             @Field("mobileNo") String mobileNo,
-            @Field("type") String type
+            @Field("phoneNo") String phoneNo
     );
 
     @FormUrlEncoded
-    @POST("api/user/findall")
+    @POST("api/admin/findall")
     Call getAllUser();
 
     @FormUrlEncoded
-    @POST("api/user/login")
+    @POST("api/admin/login")
     Call<ApiResponse> checkLogin(
             @Field("username") String username,
             @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("api/user/reset-password")
-    Call<ApiResponse> userResetPassword(
-            @Field("userId") Long userId,
+    @POST("api/admin/reset-password")
+    Call<ApiResponse> adminResetPassword(
+            @Field("userId") Long adminId,
             @Field("oldPassword") String oldPassword,
             @Field("newPassword") String newPassword,
             @Field("confirmPassword") String confirmPassword);

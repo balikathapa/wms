@@ -17,22 +17,26 @@ import np.edu.kathford.wastemanagementsystem.R;
 public class AdminDashboard extends AppCompatActivity {
 
     private ImageButton login_button;
-    private CardView D1, D2, D3, D4, D5, D6;
+    private CardView profileCardView;
+    private CardView categoryCardView;
+    private CardView manageUserCardView;
+    private CardView signupCardView;
+    private CardView paymentCardView;
+    private CardView logoutCardView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
-        D1 = (CardView) findViewById(R.id.d1);
-        D2 = (CardView) findViewById(R.id.d2);
-        D3 = (CardView) findViewById(R.id.d3);
-        D4 = (CardView) findViewById(R.id.d4);
-        D5 = (CardView) findViewById(R.id.d5);
-        D6 = (CardView) findViewById(R.id.d6);
+        profileCardView = (CardView) findViewById(R.id.profileId);
+        categoryCardView = (CardView) findViewById(R.id.categoryId);
+        manageUserCardView = (CardView) findViewById(R.id.manageUserId);
+        signupCardView = (CardView) findViewById(R.id.signupAdminId);
+        paymentCardView = (CardView) findViewById(R.id.viewPaymentId);
+        logoutCardView = (CardView) findViewById(R.id.logoutId);
 
-
-        D2.setOnClickListener(new View.OnClickListener() {
+        categoryCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AdminDashboard.this, AdminCategory.class);
@@ -40,6 +44,32 @@ public class AdminDashboard extends AppCompatActivity {
 
             }
         });
+
+        signupCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminDashboard.this, AdminSignup.class);
+                startActivity(intent);
+
+            }
+        });
+        logoutCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminDashboard.this, AdminLogin.class);
+                startActivity(intent);
+
+            }
+        });
+
+        /*resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminDashboard.this, ResetPassword.class);
+                startActivity(intent);
+            }
+        });*/
+
     }
 
     @Override
